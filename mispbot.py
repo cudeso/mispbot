@@ -173,8 +173,8 @@ class mastodon_handler:
                 self.logger.error("Error when replying to {}".format(status_id))
 
     def misp_sighting(self, indicator, username):
-        self.logger.info("Sighting {} of {}".format(username, indicator))
-        # Add MISP logic
+        self.misp.add_sighting({"value": indicator, "source": "MISPbot {}".format(username)})
+        self.logger.info("Sighting {} of {}".format(username, indicator))        
 
     def misp_query(self, indicator):
         misp_result = []

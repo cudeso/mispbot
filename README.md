@@ -91,7 +91,7 @@ bot_command = {
 Add the bot to a cron job to query for notifications every 15 minutes.
 
 ```
-CODE
+*/15 * * * * /data/mispbot/venv/bin/python mispbot.py >/dev/null 2>&1
 ```
 
 ## Configuration
