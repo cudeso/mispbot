@@ -4,9 +4,9 @@
 
 The MISPbot is a simple tool to allow users to interact with MISP via Mastodon or Twitter.
 
-There are multiple ways to interact with MISP but one approach that was missing is via a *bot*. The [MISPbot](https://github.com/cudeso/mispbot) does just that. It allows users to query MISP or report sightings via a chat bot. Currently is implemented for Mastodon (and template code for Twitter is include), but it can easily be extended to Teams, Slack, Mastodon or other platforms.
+There are multiple ways to interact with MISP but one approach that was missing is via a *bot*. The [MISPbot](https://github.com/cudeso/mispbot) does just that. It allows users to query MISP or report sightings via a chat bot. Currently it is implemented for Mastodon (and template code for Twitter is include), but it can easily be extended to Teams, Slack, Mastodon or other platforms.
 
-To avoid any confusion, there's no AI or LLM involved. You can send basic instructions to the bot (currently **query** : lookup an indicator in MISP and reply with the events and context details and **sighting** : report a sighting) and it will reply back. Obviously you can extend it with your needs.
+To avoid confusion, there's no AI or LLM involved. You can send basic instructions to the bot (**query** : lookup an indicator in MISP and reply with the events and context details and **sighting** : report a sighting) and it will reply back. Obviously you can extend it with your needs.
 
 ## Demo bot
 
@@ -20,7 +20,7 @@ Please be gentle with your requests. If abuse is spotted the demo bot will be st
 
 ## Twitter
 
-The bot contains template code for Twitter. Unfortunately for Twitter you need a paid account to get the notifications for your account. If anyone wants to sponsor the demo bot account I'm happy to enable the functionality.
+The bot contains template code for Twitter. Unfortunately for Twitter you need a **paid** (Basic) [account](https://help.twitter.com/en/using-x/x-premium-faq) to get the notifications for your account. If anyone wants to sponsor the demo bot account I'm happy to enable the functionality.
 
 # Setup
 
