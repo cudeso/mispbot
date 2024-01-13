@@ -4,19 +4,29 @@
 
 The MISPbot is a simple tool to allow users to interact with MISP via Mastodon or Twitter.
 
-There are multiple ways to interact with MISP but one approach that was missing is via a *bot*. The [MISPbot](https://github.com/cudeso/mispbot) does just that. It allows users to query MISP or report sightings via a chat bot. Currently it is implemented for Mastodon (and template code for Twitter is include), but it can easily be extended to Teams, Slack, Mastodon or other platforms.
+There are multiple ways to interact with MISP but one approach that was missing is via a *bot*. The [MISPbot](https://github.com/cudeso/mispbot) does just that. It allows users to query MISP, report sightings via a chat bot or request an enrichment. Currently it is implemented for Mastodon (and template code for Twitter is included), but it can easily be extended to Teams, Slack, Mastodon or other platforms.
 
-To avoid confusion, there's no AI or LLM involved. You can send basic instructions to the bot (**query** : lookup an indicator in MISP and reply with the events and context details and **sighting** : report a sighting) and it will reply back. Obviously you can extend it with your needs.
+To avoid confusion, there's no AI or LLM involved. You send basic instructions to the bot (**query** : lookup an indicator in MISP and reply with the events and context details and **sighting** : report a sighting) and it will reply back.
+
+You can use the *demo* bot or use the MISPbot on your own instance. Obviously for public instances you should honour [TLP](https://www.first.org/tlp/), something you can achieve with `misp_config["tags"]`.
+
+A private bot can be beneficial in a corporate environment
+
+- Allow users to **query** an indicator via Teams or Mastodon without having access to MISP;
+- **Report** the occurrence of an indicator without forcing users to use a new tool (most users already have access to a corporate chat application);
+- Provide ways to do **enrichment** of an indicator via a chat tool, by relying on the MISP infrastructure.
 
 ## Demo bot
 
 A demo of the MISPbot is available via [BOT](BOT). This bot uses a MISP server using a large set of [MISP OSINT feeds](https://www.misp-project.org/feeds/). The bot is configured to
-- Only reply to **query**, the **sightings** are ignored
+- Only reply to the **query** command, the **sightings** command is ignored
 - Query the pending notifications every 15 minutes
 - A maximum of **50 requests** per 15 minutes (for all accounts)
 - A maximum of **20 hits** per reply
 
 Please be gentle with your requests. If abuse is spotted the demo bot will be stopped.
+
+![conv.png](conv.png)
 
 ## Twitter
 
