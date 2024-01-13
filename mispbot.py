@@ -128,6 +128,9 @@ class mastodon_handler:
                             self.logger.error("Error: {} on line {}".format(e, e.__traceback__.tb_lineno))
                         except:
                             self.logger.error("Error when isolating indicator")
+                    #elif mention["content"].startswith(bot_command["enrich"]):
+                    #elif mention["content"].startswith(bot_command["add"]):
+                    #elif mention["content"].startswith(bot_command["disable"]):
                     else:
                         try:
                             self.remaining_notifications[mention["id"]] = {"conversation": mention["conversation"]}
@@ -172,6 +175,15 @@ class mastodon_handler:
             except:
                 self.logger.error("Error when replying to {}".format(status_id))
 
+    def add_event(self, indicator, username):
+        self.logger.info("Add event {} of {}".format(username, indicator))
+
+    def disable_indicator(self, indicator, username):
+        self.logger.info("Disable indicator {} of {}".format(username, indicator))
+
+    def misp_enrichment(self, indicator, username):
+        self.logger.info("Enrichment {} of {}".format(username, indicator))
+        
     def misp_sighting(self, indicator, username):
         self.misp.add_sighting({"value": indicator, "source": "MISPbot {}".format(username)})
         self.logger.info("Sighting {} of {}".format(username, indicator))        
