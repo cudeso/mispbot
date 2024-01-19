@@ -26,7 +26,7 @@ class twitter_handler:
         if misp_config["verifycert"] is False:
             import urllib3
             urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        self.misp = ExpandedPyMISP(misp_config["url"], misp_config["key"], misp_config["verifycert"], debug=False)         
+        self.misp = ExpandedPyMISP(misp_config["url"], misp_config["key"], misp_config["verifycert"], debug=False)
 
     def close(self):
         self.logger.info("Stop bot {}".format(self.username))
@@ -131,6 +131,20 @@ class mastodon_handler:
                     #elif mention["content"].startswith(bot_command["enrich"]):
                     #elif mention["content"].startswith(bot_command["add"]):
                     #elif mention["content"].startswith(bot_command["disable"]):
+                    elif mention["content"].startswith(bot_command["help"]):
+                        try:
+                            self.logger.info(" {} - {}".format(account["account"], bot_command["help"]))
+                            help_reply = ""
+                            for cmd in bot_command:
+                                help_reply = "{} {}".format(bot_command[cmd], help_reply)
+                            status_post = self.client.status_post(help_reply, in_reply_to_id=mention["conversation"], visibility=self.mastodon_config["visibility"])
+                            self.logger.debug("Replied {} {}".format(mention["id"], mention["conversation"]))
+                            self.client.notifications_dismiss(mention["id"])
+                            self.logger.info("Dismiss notification {}".format(mention["id"]))
+                        except IndexError as e:
+                            self.logger.error("Error: {} on line {}".format(e, e.__traceback__.tb_lineno))
+                        except:
+                            self.logger.error("Error when providing help")
                     else:
                         try:
                             self.remaining_notifications[mention["id"]] = {"conversation": mention["conversation"]}

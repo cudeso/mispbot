@@ -23,5 +23,6 @@ log_file = "/var/log/misp/mispbot.log"
 
 bot_command = {
     "query": "query",
-    "sighting": "sighting"
+    "sighting": "sighting",
+    "help": "help"
 }
