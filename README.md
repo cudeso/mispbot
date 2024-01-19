@@ -20,7 +20,7 @@ A private bot can be beneficial in a corporate environment:
 
 ## Demo bot
 
-A demo of the MISPbot is available via [[BOT](https://infosec.exchange/@mispbot)](https://infosec.exchange/@mispbot). This bot uses a MISP server using a large set of [MISP OSINT feeds](https://www.misp-project.org/feeds/). The bot is configured to
+A demo of the MISPbot is available via [https://infosec.exchange/@mispbot](https://infosec.exchange/@mispbot). This bot uses a MISP server using a large set of [MISP OSINT feeds](https://www.misp-project.org/feeds/). The bot is configured to
 - Only reply to the **query** command, the **sightings** command is ignored
 - Query the pending notifications every 15 minutes
 - A maximum of **50 requests** per 15 minutes (for all accounts)
